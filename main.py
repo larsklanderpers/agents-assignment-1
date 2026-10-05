@@ -11,8 +11,6 @@ Examples:
     python main.py "What are the current approaches to reducing hallucinations in LLMs?"
     python main.py "How do multi-agent systems coordinate and communicate?"
 
-TODO: This file is mostly complete. You may customize it if needed,
-but the main work is in agents/, tasks/, and crew.py.
 """
 
 import argparse
@@ -156,7 +154,7 @@ def main():
     except NotImplementedError as e:
         console.print(f"\n[red]Not Implemented: {e}[/red]")
         console.print("\n[yellow]You need to implement the agents, tasks, and crew first![/yellow]")
-        console.print("See the TODO comments in:")
+        console.print("Check the implementation in:")
         console.print("  - agents/*.py")
         console.print("  - tasks/task_definitions.py")
         console.print("  - crew.py")

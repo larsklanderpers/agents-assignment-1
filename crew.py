@@ -1,9 +1,9 @@
 """
 Research Crew Configuration
 
-TODO: Configure and run the Research & Report Crew.
+Configure and run the Research & Report Crew.
 
-This module should:
+This module:
 1. Import your agents from the agents module
 2. Create tasks using create_research_tasks()
 3. Configure a Crew with sequential process
@@ -29,25 +29,14 @@ def create_research_crew(research_question: str) -> Crew:
     Returns:
         Configured Crew ready to execute
 
-    TODO: Implement this function
     """
-
-    # TODO: Create tasks for the research question
-    # tasks = create_research_tasks(research_question)
-
-    # TODO: Create and configure the Crew
-    # crew = Crew(
-    #     agents=[query_expander, source_hunter, synthesizer, report_writer],
-    #     tasks=tasks,
-    #     process=Process.sequential,
-    #     verbose=True,
-    #     memory=True,
-    # )
-    # return crew
-
-    # Placeholder - replace with your implementation
-    raise NotImplementedError(
-        "TODO: Implement create_research_crew() in crew.py"
+    tasks = create_research_tasks(research_question)
+    return Crew(
+        agents=[query_expander, source_hunter, synthesizer, report_writer],
+        tasks=tasks,
+        process=Process.sequential,
+        verbose=True,
+        memory=True,
     )
 
 
@@ -61,17 +50,10 @@ def run_research(research_question: str) -> str:
     Returns:
         The final literature review as a string
 
-    TODO: Implement this function
     """
-    # TODO: Create the crew and run it
-    # crew = create_research_crew(research_question)
-    # result = crew.kickoff()
-    # return str(result)
-
-    # Placeholder - replace with your implementation
-    raise NotImplementedError(
-        "TODO: Implement run_research() in crew.py"
-    )
+    crew = create_research_crew(research_question)
+    result = crew.kickoff()
+    return str(result)
 
 
 # Allow running crew.py directly for testing

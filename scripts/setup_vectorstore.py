@@ -201,7 +201,7 @@ def create_vectorstore(chunks: list[Chunk]) -> dict:
         task = progress.add_task("Generating embeddings...", total=len(texts))
 
         # Process in batches for progress updates
-        batch_size = 50
+        batch_size = 75
         all_embeddings = []
 
         for i in range(0, len(texts), batch_size):
@@ -209,6 +209,7 @@ def create_vectorstore(chunks: list[Chunk]) -> dict:
             embeddings = provider.embed_documents(batch)
             all_embeddings.extend(embeddings)
             progress.update(task, completed=min(i + batch_size, len(texts)))
+
 
     console.print()
     console.print("[bold]Step 4/4: Building ChromaDB index...[/bold]")
